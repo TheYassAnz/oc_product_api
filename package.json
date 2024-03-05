@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/TheYassAnz/oc_product_api/issues"
   },
-  "homepage": "https://github.com/TheYassAnz/oc_product_api#readme"
+  "homepage": "https://github.com/TheYassAnz/oc_product_api#readme",
+  "dependencies": {
+    "express": "^4.18.3"
+  }
 }
