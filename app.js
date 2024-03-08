@@ -34,7 +34,7 @@ app.use((req, res, next) => {
 app.get('/api/products', (req, res, next) => {
     Product.find()
         // return a json object with the products
-        .then(products => res.status(200).json(products))
+        .then(products => res.status(200).json({ products }))
         // return the error object if there is an error
         .catch(error => res.status(500).json({ error }));
 });
