@@ -39,5 +39,16 @@ app.get('/api/products', (req, res, next) => {
         .catch(error => res.status(500).json({ error }));
 });
 
+// POST /api/products route
+app.post('/api/products', (req, res, next) => {
+    delete req.body._id;
+    const product = new Product({
+        ...req.body
+    });
+    product.save()
+        .then(product => res.status(201).json({ product }))
+        .catch(error => res.status(500).json({ error }));
+})
+
 // Export the express app
 module.exports = app;
