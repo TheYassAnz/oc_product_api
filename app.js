@@ -19,6 +19,9 @@ mongoose.connect('mongodb+srv://ysma:zQQ5jj82GDAP2sen@ocexpressexercice.xtyis6e.
 // Create an express app
 const app = express();
 
+// Add body parser middleware
+app.use(express.json());
+
 // Add CORS middleware
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
