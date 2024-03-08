@@ -39,6 +39,15 @@ app.get('/api/products', (req, res, next) => {
         .catch(error => res.status(500).json({ error }));
 });
 
+// GET /api/products/:id route
+app.get('/api/products/:id', (req, res, next) => {
+    Product.findOne({ _id: req.params.id })
+        // return a json object with the product
+        .then(product => res.status(200).json({ product }))
+        // return the error object if there is an error
+        .catch(error => res.status(500).json({ error }));
+})
+
 // POST /api/products route
 app.post('/api/products', (req, res, next) => {
     delete req.body._id;
