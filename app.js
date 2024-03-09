@@ -66,5 +66,12 @@ app.put('/api/products/:id', (req, res, next) => {
         .catch(error => res.status(500).json({ error }));
 })
 
+// DELETE /api/products/:id route
+app.delete('/api/products/:id', (req, res, next) => {
+    Product.deleteOne({ _id: req.params.id })
+        .then(() => res.status(204).json({ message: 'Deleted!' }))
+        .catch(error => res.status(500).json({ error }));
+})
+
 // Export the express app
 module.exports = app;
