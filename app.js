@@ -59,5 +59,12 @@ app.post('/api/products', (req, res, next) => {
         .catch(error => res.status(500).json({ error }));
 })
 
+// PUT /api/products/:id route
+app.put('/api/products/:id', (req, res, next) => {
+    Product.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
+        .then(() => res.status(200).json({ message: 'Modified!' }))
+        .catch(error => res.status(500).json({ error }));
+})
+
 // Export the express app
 module.exports = app;
